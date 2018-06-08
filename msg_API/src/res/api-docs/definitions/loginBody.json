@@ -3,7 +3,7 @@
         "properties": {
             "username": {
                 "type": "string",
-                "example": "KasperLarsen"
+                "example": "Alice"
             },
             "password": {
                 "type": "string",

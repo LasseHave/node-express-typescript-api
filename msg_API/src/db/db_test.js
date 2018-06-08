@@ -1,6 +1,6 @@
 /**
  * db_test.js
- * For populating a test database for MyStudyGroupAPI
+ * For populating a test database for API
  */
 
 // All tables (collections for database)
