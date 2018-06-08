@@ -1,0 +1,91 @@
+{
+    "/courses/": {
+      "get": {
+        "description": "Get all courses",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "course"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Courses",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Course"
+                  }
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "DB Error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          },
+          "default": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          }
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "description": "Get course by id",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "course"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Course ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Course",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "course": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/definitions/Course"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "DB Error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          },
+          "default": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          }
+        }
+      }
+    }
+}

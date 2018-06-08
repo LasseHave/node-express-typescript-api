@@ -1,0 +1,40 @@
+{
+    "User": {
+        "properties": {
+            "_id": {
+                "type": "ObjectId"
+            },
+            "created": {
+                "type": "date"
+            },
+            "lastUpdated": {
+                "type": "date"
+            },
+            "firstName": {
+                "type": "string"
+            },
+            "lastName": {
+                "type": "string"
+            },
+            "userName": {
+                "type": "string"
+            },
+            "password": {
+                "type": "string",
+                "format": "password"
+            },
+            "age": {
+                "type": "number"
+            },
+            "study": {
+                "type": "Study"
+            },
+            "courses": {
+                "type": "array",
+                "items": {
+                    "type": "#/definitions/Course"
+                }
+            }
+        }
+    }
+}

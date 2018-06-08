@@ -1,0 +1,21 @@
+{
+    "Study": {
+        "properties": {
+            "created": {
+                "type": "date"
+            },
+            "lastUpdated": {
+                "type": "date"
+            },
+            "studyName": {
+                "type": "string"
+            },
+            "startYear": {
+                "type": "number"
+            },
+            "bachelor": {
+                "type": "boolean"
+            }
+        }
+    }
+}

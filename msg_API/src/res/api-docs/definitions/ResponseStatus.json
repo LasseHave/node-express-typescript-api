@@ -1,0 +1,16 @@
+{
+    "ResponseStatus": {
+        "properties": {
+            "code": {
+                "type": "integer",
+                "format": "int32"
+            },
+            "status": {
+                "type": "string"
+            },
+            "message": {
+                "type": "string"
+            }
+        }
+    }
+}

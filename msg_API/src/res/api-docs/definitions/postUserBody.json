@@ -1,0 +1,21 @@
+{
+    "postUserBody": {
+        "properties": {
+            "user": {
+                "type": "object",
+                    "example": {
+                        "_id": "52ffc33cd85242f436000005",
+                        "created": "2017-12-01",
+                        "lastUpdated": "2017-12-01",
+                        "firstName": "Carol",
+                        "lastName": "Carol",
+                        "username": "Carol",
+                        "password": "$2a$10$ezz6pmfLxormsT08g6pHX.mzEv4qQe1jv0x/.e9qheEAVAjkiq54y",
+                        "age": 123,
+                        "study": "52ffc33cd85242f436000333",
+                        "courses": ["52ffc33cd85242f436000555"]
+                    }
+            }
+        }
+    }
+}

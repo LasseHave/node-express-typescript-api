@@ -1,0 +1,34 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API Boilerplate",
+        "license": {
+            "name": "MIT"
+        },
+        "contact": {
+            "name": "Lasse Have Nielsen",
+            "url": "http://lassehave.github.io"
+        }
+    },
+    "securityDefinitions": {
+        "jwt": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "security": [{
+        "jwt": []
+    }],
+    "basePath": "/api/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ]
+}

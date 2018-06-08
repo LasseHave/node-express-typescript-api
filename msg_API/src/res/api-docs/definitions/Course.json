@@ -1,0 +1,30 @@
+{
+    "Course": {
+        "properties": {
+            "_id": {
+                "type": "ObjectId"
+            },
+            "created": {
+                "type": "date"
+            },
+            "lastUpdated": {
+                "type": "date"
+            },
+            "courseName": {
+                "type": "string"
+            },
+            "courseDescription": {
+                "type": "string"
+            },
+            "examDate": {
+                "type": "date"
+            },
+            "members": {
+                "type": "array",
+                "items": {
+                    "type": "#/definitions/User"
+                }
+            }
+        }
+    }
+}

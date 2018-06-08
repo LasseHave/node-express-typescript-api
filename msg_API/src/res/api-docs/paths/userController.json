@@ -1,0 +1,297 @@
+{
+    "/users/": {
+        "get": {
+            "description": "Get all users",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "responses": {
+                "200": {
+                    "description": "All Users",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "users": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "550": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        },
+        "post": {
+            "description": "Create user",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "parameters": [{
+                "in": "body",
+                "name": "body",
+                "description": "user",
+                "schema": {
+                    "schema": {
+                        "$ref": "#/definitions/postUserBody"
+                    }
+                }
+            }],
+            "responses": {
+                "200": {
+                    "description": "User",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "createdUser": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            },
+                            "token": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "503": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        }
+    },
+    "/users/{id}": {
+        "get": {
+            "description": "Get user by id",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "description": "User ID",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "default": "52ffc33cd85242f436000002"
+            }],
+            "responses": {
+                "200": {
+                    "description": "User",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "loggedInUser": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "503": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        },
+        "put": {
+            "description": "Edit user",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "UserId and newData",
+                    "schema": {
+                        "$ref": "#/definitions/editUserBody"
+                    }
+                },
+                {
+                    "name": "id",
+                    "in": "path",
+                    "description": "User ID",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "default": "52ffc33cd85242f436000002"
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "User",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "editedUser": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            }
+                        }
+                    }
+                },
+                "503": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        }
+    },
+    "/users/login": {
+        "post": {
+            "description": "Login",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "parameters": [{
+                "in": "body",
+                "name": "body",
+                "description": "Username and password",
+                "schema": {
+                    "schema": {
+                        "$ref": "#/definitions/loginBody"
+                    }
+                }
+            }],
+            "responses": {
+                "200": {
+                    "description": "User",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "loggedInUser": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/definitions/User"
+                                }
+                            },
+                            "token": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "503": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        }
+    },
+    "/users/{id}/courses": {
+        "get": {
+            "description": "Get all courses by user",
+            "produces": [
+                "application/json"
+            ],
+            "tags": [
+                "user"
+            ],
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "description": "User ID",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "default": "52ffc33cd85242f436000002"
+            }],
+            "responses": {
+                "200": {
+                    "description": "Courses",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "courses": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/definitions/Course"
+                                }
+                            }
+                        }
+                    }
+                },
+                "503": {
+                    "description": "DB Error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                },
+                "default": {
+                    "description": "Internal server error",
+                    "schema": {
+                        "$ref": "#/definitions/ResponseStatus"
+                    }
+                }
+            }
+        }
+    }
+}

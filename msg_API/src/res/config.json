@@ -1,0 +1,6 @@
+{
+    "wwwroot": "../../dist",
+    "listenPort": "3000",
+    "startMessage": "listen on port 3000",
+    "mongodbUrl": ""
+}

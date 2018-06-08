@@ -1,0 +1,14 @@
+{
+    "loginBody": {
+        "properties": {
+            "username": {
+                "type": "string",
+                "example": "KasperLarsen"
+            },
+            "password": {
+                "type": "string",
+                "example": "$2a$10$ezz6pmfLxormsT08g6pHX.mzEv4qQe1jv0x/.e9qheEAVAjkiq54y"
+            }
+        }
+    }
+}

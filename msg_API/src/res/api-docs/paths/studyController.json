@@ -1,0 +1,91 @@
+{
+    "/studies/": {
+      "get": {
+        "description": "Get all studies",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "study"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Studies",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Study"
+                  }
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "DB Error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          },
+          "default": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          }
+        }
+      }
+    },
+    "/studies/{id}": {
+      "get": {
+        "description": "Get study by id",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "study"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Study ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Study",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "study": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/definitions/Study"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "DB Error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          },
+          "default": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ResponseStatus"
+            }
+          }
+        }
+      }
+    }
+}
